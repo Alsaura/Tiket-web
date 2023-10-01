@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANGGUNG GEMBIRA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <img src="images/logo.png" alt="Panggung Gembira" />
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="beranda" class="centered-content">
+        <h2 class="fadeInEffect">Selamat datang di Panggung Gembira</h2>
+        
+        <!-- Kontent -->
+                <form>
+                    <label for="tanggal">Tanggal Pembelian:</label>
+                    <input type="date" id="tanggal" name="tanggal"><br><br>
+                    
+                    <label for="nama">Nama Lengkap:</label>
+                    <input type="text" id="nama" name="nama"><br><br>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+                    
+                    <label for="harga">Harga Tiket (per tiket):</label>
+                    <input type="text" id="harga" name="harga" value="75.000" readonly><br><br>
+                    
+                    <label for="jumlah">Jumlah Tiket:</label>
+                    <input type="number" id="jumlah" name="jumlah" value="1" min="1" onchange="updateTotal()"><br><br>
+                    
+                    <label for="total">Total Harga:</label>
+                    <input type="text" id="total" name="total" readonly><br><br>
+                
+                    <button type="submit">Pesan Tiket</button>
+                </form>
+            <script>
+                function updateTotal() {
+                    const hargaPerTiket = 75000; // Harga per tiket
+                    let jumlahTiket = document.getElementById("jumlah").value; // Mendapatkan nilai dari input jumlah tiket
+                    let total = hargaPerTiket * jumlahTiket; // Menghitung total
+                
+                    document.getElementById("total").value = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(total); // Menampilkan total dengan format mata uang Rupiah
+                }
+                
+                // Panggil fungsi updateTotal saat halaman dimuat untuk menampilkan total awal
+                window.onload = function() {
+                    updateTotal();
+                };
+                
+                </script>
+                
+        </section>
+    </section>
+    <section class="petunjuk">
+        <h2>Petunjuk Penyerahan Tiket</h2>  
+            <p><i class="fas fa-ticket-alt"></i> Pastikan Anda membawa tiket fisik atau versi digital saat menghadiri acara.</p>
+            <p><i class="fas fa-id-card-alt"></i> Tunjukkan identitas Anda kepada petugas saat memasuki venue.</p>
+            <p><i class="fas fa-clock"></i> Datanglah minimal 30 menit sebelum acara dimulai untuk menghindari keterlambatan.</p>
+            <p><i class="fas fa-info-circle"></i> Jika Anda kehilangan tiket, hubungi panitia acara secepatnya.</p>
+        </section>
+    </section>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const tanggal = document.getElementById('tanggal').value;
+        const nama = document.getElementById('nama').value;
+        const hargaTiket = document.getElementById('harga').value;
+        const jumlahTiket = document.getElementById('jumlah').value;
+        const totalHarga = document.getElementById('total').value;
+        const noDANA = "0895424332028";
+
+        const konfirmasiPesan = `
+        Konfirmasi Pesanan:
+        Tanggal Pembelian: ${tanggal}
+        Nama Lengkap: ${nama}
+        Harga per Tiket: ${hargaTiket}
+        Jumlah Tiket: ${jumlahTiket}
+        Total Harga: ${totalHarga}
+        
+        Silakan bayar ke nomer DANA berikut: ${noDANA}
+        `;
+
+        const konfirmasi = window.confirm(konfirmasiPesan);
+
+        if (konfirmasi) {
+            // Jika pengguna mengklik "OK", Anda dapat memproses formulir lebih lanjut di sini, seperti mengirimkan ke server atau lainnya.
+        } else {
+            // Jika pengguna mengklik "Cancel", Anda bisa membiarkannya kembali ke form.
+        }
+    });
+
+    </script>
+    <section id="konfirmasiPesanan" class="sec3" style="
+    background: blue;">
+          <section id="konfirmasiPesanan" class="sec3">
+            <h2>Konfirmasi Pesanan Anda</h2>
+            <form action="proses_konfirmasi.php" method="POST" enctype="multipart/form-data">       
+                <label for="konfirmasiNama">Nama:</label>
+                <input type="text" id="konfirmasiNama" name="konfirmasiNama" required><br><br>
+    
+                <label for="konfirmasiEmail">Email:</label>
+                <input type="email" id="konfirmasiEmail" name="konfirmasiEmail" required><br><br>
+    
+                <label for="buktiTransfer">Bukti Transfer:</label>
+                <input type="file" id="buktiTransfer" name="buktiTransfer" accept="image/*" required><br><br>
+        
+                <button type="submit">Kirim Konfirmasi</button>
+            </form>
+        </section>
+</body>
+
+</html>

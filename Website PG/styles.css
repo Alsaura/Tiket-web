@@ -1,0 +1,256 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    position: fixed;
+    top: 0; /* Navbar akan ditempatkan di bagian atas viewport */
+    left: 0; /* Navbar akan ditempatkan di sebelah kiri viewport */
+    width: 100%; /* Mengambil seluruh lebar viewport */
+    z-index: 1000; /* Pastikan navbar berada di atas elemen lainnya di halaman */
+    /* Anda mungkin juga ingin menambahkan properti lain seperti background-color, padding, dll. untuk memperbaiki tampilannya */
+}
+
+.navbar img {
+    height: 50px; /* Tinggi yang kita inginkan */
+    width: auto;  /* Ini memastikan rasio aspek asli dipertahankan */
+    display: block;
+    margin: 15px;  /* Pusatkan logo di navbar jika navbar lebih lebar dari logo */
+    margin-left: 38px
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    display:flex;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black; /* Anda perlu menghilangkan # sebelum black, karena black adalah kata kunci warna yang valid */
+    padding: 5px 10px; /* Menambahkan padding agar border memiliki ruang */
+    transition: color 0.3s, border 0.3s; /* Menambahkan transisi untuk border */
+    Border: 2px solid transparent; /* Border bawah awal dengan warna transparan */
+    border-radius: 5px;
+}
+
+.navbar ul li a:hover {
+    color: blue;
+    Border: 2px solid blue; /* Border bawah berwarna biru saat mouse berada di atasnya */
+    border-radius:5px;
+    background:blue;
+    color:white;
+}
+
+
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Ini akan memastikan konten memenuhi tinggi viewport */
+    text-align: center;
+    background: blue;
+
+}
+.centered-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+h2 {
+    margin-bottom: auto;
+    font-family: poppins;
+    font-size: 40px;
+    color: white;
+    padding-top: 100px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeInEffect {
+    animation: fadeIn 2s forwards; /* 'forwards' memastikan bahwa animasi berhenti pada frame terakhir dan tidak kembali ke frame awal */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: white;
+    font-family: poppins;
+}
+
+label {
+    margin-right: 10px;
+}
+
+label, input {
+    width: 50%;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #6f87ff; /* Anda bisa mengubah ke warna lain jika diinginkan */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer; /* Mengubah kursor menjadi tangan saat berada di atas tombol */
+    transition: background-color 0.3s; /* Efek transisi untuk hover */
+    font-family:poppins;
+    margin: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: red;
+    color:white; /* Mengganti warna saat mouse berada di atas tombol */
+}
+
+input[type="date"], input[type="text"], input[type="number"], input[type="email"] {
+    margin-bottom: -44px;
+    padding: 16px 28px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: poppins;
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+}
+/*---------------------------------------------------------------------------------------------------------- */
+.petunjuk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px; /* Penambahan padding untuk memberi ruang di dalam kotak */
+    background-color: #ffffff;  /* Warna latar belakang kotak */
+    margin: 20px;  /* Margin untuk memberi jarak antara kotak dengan konten lainnya */
+    border-radius: 8px; /* Memberikan sudut melengkung pada kotak */
+}
+
+.petunjuk h2 {
+    color: #333;
+    margin-bottom: 30px; /* Penambahan margin agar jarak dengan paragraf lebih lebar */
+}
+
+.petunjuk p {
+    display: flex; /* Agar ikon dan teks berada dalam satu baris */
+    flex-direction: column;
+    align-items: center; /* Menjorokkan ikon dan teks ke tengah kotak secara vertikal */
+    padding: 20px; /* Menambahkan padding di sekitar teks dan ikon */
+    margin-bottom: 20px; /* Menambahkan jarak antara setiap kotak */
+    color: #555;
+    font-size: 16px;
+    width: 80%; /* Mengatur lebar kotak */
+    background-color: #ffffff; /* Warna latar belakang kotak */
+    border: 1px solid #e0e0e0; /* Menambahkan border di sekeliling kotak */
+    border-radius: 8px; /* Memberikan sudut melengkung pada kotak */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* Menambahkan shadow */
+    transition: background-color 0.3s ease, color 0.3s ease; /* animasi halus selama 0.3 detik */
+}
+}
+
+.petunjuk i {
+    margin-right: 15px; /* Menambahkan jarak antara ikon dan teks */
+}
+
+.petunjuk p:hover {
+    background-color: blue; /* Mengubah latar belakang menjadi biru */
+    color: white; /* Mengubah teks menjadi putih */
+    cursor: pointer; /* Opsional: Mengubah kursor menjadi tangan saat di atas kotak */
+}
+
+/* Jika Anda ingin ikon (FontAwesome) juga berubah menjadi putih saat hover */
+.petunjuk p:hover i {
+    color: white;
+
+/*---------------------------------------------------------------------------------------------------------- */
+#konfirmasiPesanan {
+    background:blue;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#konfirmasiPesanan h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+#konfirmasiPesanan label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+#konfirmasiPesanan input[type="text"],
+#konfirmasiPesanan input[type="email"],
+#konfirmasiPesanan input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#konfirmasiPesanan button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+#konfirmasiPesanan button:hover {
+    background-color: #2980b9;
+}
+
+/*---------------------------------------------------------------------------------------------------------- */
